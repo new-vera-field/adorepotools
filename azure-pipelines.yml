@@ -5,17 +5,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-    sudo apt-get install -y nodejs=14.* npm=7.*
-    node --version
-    npm --version
-  displayName: 'Install Node.js and npm'
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+  displayName: 'Use Python 3.x'
 
 - script: |
-    npm install
-  displayName: 'Install dependencies'
+    python --version
+  displayName: 'Display Python version'
 
 - script: |
-    npm test
-  displayName: 'Run tests'
+    python your_script.py
+  displayName: 'Run Python script'
