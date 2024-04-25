@@ -1,5 +1,5 @@
 trigger:
-- main
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -12,9 +12,13 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    /usr/local/bin/npm install
+    npm install -g npm@7
+  displayName: 'Install latest compatible npm'
+
+- script: |
+    npm install
   displayName: 'Install dependencies'
 
 - script: |
-    /usr/local/bin/npm test
+    npm test
   displayName: 'Run tests'
