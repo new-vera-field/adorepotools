@@ -6,9 +6,8 @@ pool:
 
 steps:
 - script: |
-    sudo apt-get update
-    sudo apt-get install -y nodejs
-    sudo apt-get install -y npm
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs=14.* npm=7.*
     node --version
     npm --version
   displayName: 'Install Node.js and npm'
