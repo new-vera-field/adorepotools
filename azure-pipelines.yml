@@ -1,15 +1,6 @@
-
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
-    addToPath: true
-  displayName: 'Use Python 3.x'
-
-- script: |
-    python --version
-    python -c "print('Hello, Python!')"
-  displayName: 'Run Python command'
+- task: VeracodeWorkflowExtension@1
+  displayName: 'Veracode Workflow Extension'
