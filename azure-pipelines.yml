@@ -1,62 +1,17 @@
-# Azure Pipelines YAML file
-
 trigger:
-  - main # Trigger the pipeline when changes are pushed to the 'main' branch
+- main
 
 pool:
-  vmImage: 'ubuntu-latest' # Use the latest Ubuntu VM image
+  vmImage: 'ubuntu-latest'
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
 
-jobs:
+- script: npm install
+  displayName: 'Install dependencies'
 
-- job: Build
-  displayName: 'Build Solution'
-  steps:
-  - task: NuGetToolInstaller@1
-
-  - task: NuGetCommand@2
-    inputs:
-      restoreSolution: '$(solution)'
-
-  - task: VSBuild@1
-    inputs:
-      solution: '$(solution)'
-      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-      platform: '$(buildPlatform)'
-      configuration: '$(buildConfiguration)'
-
-  - task: VSTest@2
-    inputs:
-      platform: '$(buildPlatform)'
-      configuration: '$(buildConfiguration)'
-
-- job: Deploy
-  displayName: 'Deploy to Azure App Service'
-  dependsOn: Build
-  condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
-  steps:
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: 'current'
-      downloadType: 'single'
-      artifactName: '$(buildConfiguration)'
-      downloadPath: '$(System.ArtifactsDirectory)'
-
-  - task: AzureWebApp@1
-    inputs:
-      azureSubscription: 'ResourceManagerConnection'
-      appType: 'webApp'
-      appName: 'YOUR_APP_SERVICE_NAME'
-      deployToSlotOrASEFlag: true
-      resourceGroupName: 'YOUR_RESOURCE_GROUP_NAME'
-      appSettings: |
-        [
-          {
-            "name": "SOME_APP_SETTING_NAME",
-            "value": "SOME_APP_SETTING_VALUE"
-          }
-        ]
+- script: npm test
+  displayName: 'Run tests'
