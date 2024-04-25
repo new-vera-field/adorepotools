@@ -2,5 +2,5 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: VeracodeBeta@1.0.0
+- task: VeracodeBeta@1.0.3
   displayName: 'Veracode Workflow Extension'
