@@ -13,8 +13,5 @@ steps:
 
 - script: |
     python --version
-  displayName: 'Display Python version'
-
-- script: |
-    python your_script.py
-  displayName: 'Run Python script'
+    python -c "print('Hello, Python!')"
+  displayName: 'Run Python command'
