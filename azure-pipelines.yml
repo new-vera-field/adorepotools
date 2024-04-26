@@ -1,6 +1,19 @@
+trigger:
+- main
+
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: VeracodeBeta@1.0.3
-  displayName: 'Veracode Workflow Extension'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: npm install
+  displayName: 'Install dependencies'
+
+- task: pipelinescan
+  displayName: 'Run Veracode scan'
+  inputs:
+    samplestring: 'Hello World'
