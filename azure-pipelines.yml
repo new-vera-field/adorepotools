@@ -1,0 +1,22 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: npm install
+  displayName: 'Install dependencies'
+
+- task: VeracodePipelineScan@0  
+  inputs:  
+    VeracodeAPIID: '$(vid)'  
+    VeracodeAPISecret: '$(vkey)'  
+    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'  
+    policyName: 'VeraDemo Policy'
+    breakPipeline: true
