@@ -13,7 +13,7 @@ steps:
 - script: npm install
   displayName: 'Install dependencies'
 
-- task: pipelinescan@1.0.6
+- task: New-Veracode-PipelineScan@1.0.7
   displayName: 'Run Veracode scan'
   inputs:
     samplestring: 'Hello World'
