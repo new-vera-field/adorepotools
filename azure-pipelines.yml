@@ -13,7 +13,7 @@ steps:
 - script: npm install
   displayName: 'Install dependencies'
 
-- task: New-Veracode-PipelineScan@0
+- task: New-Veracode-PipelineScan@1
   inputs:  
     VeracodeAPIID: '$(vid)'  
     VeracodeAPISecret: '$(vkey)'  
