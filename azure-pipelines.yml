@@ -14,10 +14,11 @@ steps:
   displayName: 'Install dependencies'
 
 - task: New-Veracode-PipelineScan@0
-  updateTasksVersion: false
+  
   inputs:  
     VeracodeAPIID: '$(vid)'  
     VeracodeAPISecret: '$(vkey)'  
     fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'  
     policyName: 'VeraDemo Policy'
     breakPipeline: true
+    updateTasksVersion: false
