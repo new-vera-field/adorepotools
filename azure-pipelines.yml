@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: veracode
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -13,8 +16,9 @@ steps:
 - script: npm install
   displayName: 'Install dependencies'
 
-- task: New-Veracode-PipelineScan@0
-  
+-  
+
+- task: New-Veracode-PipelineScan@0  
   inputs:  
     VeracodeAPIID: '$(vid)'  
     VeracodeAPISecret: '$(vkey)'  
