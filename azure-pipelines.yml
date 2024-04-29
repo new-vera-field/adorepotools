@@ -15,4 +15,8 @@ steps:
 
 - task: New-Veracode-PipelineScan@0
   inputs:  
-   samplestring: "veeru"
+    VeracodeAPIID: '$(vid)'  
+    VeracodeAPISecret: '$(vkey)'  
+    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'  
+    policyName: 'VeraDemo Policy'
+    breakPipeline: true
