@@ -21,4 +21,4 @@ steps:
     fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'  
     policyName: 'VeraDemo Policy'
     breakPipeline: true
-    updateTasksVersion: false
+    updateTasksVersion: true
