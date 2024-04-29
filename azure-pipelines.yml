@@ -13,10 +13,6 @@ steps:
 - script: npm install
   displayName: 'Install dependencies'
 
-- task: VeracodePipelineScan@0  
+- task: New-Veracode-PipelineScan@0  
   inputs:  
-    VeracodeAPIID: '$(vid)'  
-    VeracodeAPISecret: '$(vkey)'  
-    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'  
-    policyName: 'VeraDemo Policy'
-    breakPipeline: true
+   samplestring: "veeru"
