@@ -20,7 +20,7 @@ steps:
   inputs:  
     VeracodeAPIID: '$(vid)'  
     VeracodeAPISecret: '$(vkey)'
-    fileToScan:'$(System.DefaultWorkingDirectory)/entrypoint.sh'  
+    fileToScan: '$(System.DefaultWorkingDirectory)/entrypoint.sh'  
     policyName: 'VeraDemo Policy'
     breakPipeline: true
     updateTasksVersion: true
