@@ -13,7 +13,7 @@ steps:
     VERACODE_API_KEY_ID: '$(vid)'  
     VERACODE_API_KEY_SECRET: '$(vkey)'
     VERACODE_APP_ID: '$(appId)'
-    VERACODE_UPLOAD_PATTERN: '$(System.DefaultWorkingDirectory)/target/verademo.war'  
+    VERACODE_UPLOAD_PATTERN: '$(System.DefaultWorkingDirectory)/target/verademo.war)'  
     policyName: 'VeraDemo Policy'
     breakPipeline: true
     updateTasksVersion: true
