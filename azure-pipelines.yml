@@ -19,7 +19,8 @@ steps:
 - task: New-Veracode-PipelineScan@0
   inputs:  
     VeracodeAPIID: '$(vid)'  
-    VeracodeAPISecret: '$(vkey)'  
+    VeracodeAPISecret: '$(vkey)'
+    fileToScan:'$(System.DefaultWorkingDirectory)/entrypoint.sh'  
     policyName: 'VeraDemo Policy'
     breakPipeline: true
     updateTasksVersion: true
