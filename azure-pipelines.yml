@@ -12,5 +12,5 @@ steps:
   inputs:  
     VeracodeAPIID: '$(vid)'  
     VeracodeAPIsecret: '$(vkey)'
-    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war)' 
+    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war' 
    
