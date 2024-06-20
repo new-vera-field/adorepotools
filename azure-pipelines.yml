@@ -6,12 +6,3 @@ pool:
 
 variables:
 - group: veracode
-
-steps:
-- checkout: self
-- task: Veracode-Scan@0
-  inputs:  
-    VeracodeAPIID: '$(vid)'  
-    VeracodeAPIsecret: '$(vkey)'
-    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war' 
-   
