@@ -4,9 +4,6 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-- group: veracode
-
 steps:
 - script: |
     echo "Running task with custom Azure subscription"
