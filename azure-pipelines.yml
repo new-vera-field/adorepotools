@@ -6,3 +6,8 @@ pool:
 
 variables:
 - group: veracode
+
+steps:
+- script: |
+    echo "Running task with custom Azure subscription"
+  displayName: 'Echo Azure Subscription'
