@@ -17,6 +17,6 @@ steps:
     VERACODE_APP_ID: '$(appId)'
     VERACODE_DISPATCH_PATTERN: verademo.war
     VERACODE_DEFAULT_BRANCH: 'refs/heads/main'
-    VERACODE_MODULE_PATTERN: target/verademo.war
+    VERACODE_MODULE_PATTERN: '$(System.DefaultWorkingDirectory)/verademo.war'
     VERACODE_SCAN_TIMEOUT: '30'
     
