@@ -3,12 +3,12 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  
+
 steps:
 - task: veracode-scan@0
   inputs: 
-    VERACODE_API_KEY_ID: '$(vid)'
-    VERACODE_API_KEY_SECRET: '$(vkey)'
+    VeracodeAPIID: '$(vid)'
+    VeracodeAPIsecret: '$(vkey)'
     fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'
     VERACODE_APP_ID: '$(appId)'
     VERACODE_DISPATCH_PATTERN: verademo.war
