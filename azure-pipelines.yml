@@ -4,7 +4,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: |
-    echo "Running task with custom Azure subscription"
-  displayName: 'Echo Azure Subscription'
+- task: veracode-scan@0
+  inputs: 
+    VERACODE_API_KEY_ID: '$(vid)'
+    VERACODE_API_KEY_SECRET: '$(vkey)'
+    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'
+    VERACODE_APP_ID: '$(appId)'
+    VERACODE_DISPATCH_PATTERN: verademo.war
+    VERACODE_DEFAULT_BRANCH: 'refs/heads/main'
+    VERACODE_MODULE_PATTERN: target/verademo.war
+    VERACODE_SCAN_TIMEOUT: '30'
+    
