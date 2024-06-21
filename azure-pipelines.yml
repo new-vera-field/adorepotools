@@ -4,6 +4,10 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  - group: veracode
+  
+
 steps:
 - task: veracode-scan@0
   inputs: 
