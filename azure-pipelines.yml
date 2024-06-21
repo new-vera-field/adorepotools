@@ -13,7 +13,7 @@ steps:
   inputs: 
     VeracodeAPIID: '$(vid)'
     VeracodeAPIsecret: '$(vkey)'
-    fileToScan: '$(System.DefaultWorkingDirectory)/target/verademo.war'
+    fileToScan: '$(System.DefaultWorkingDirectory)/verademo.war'
     VERACODE_APP_ID: '$(appId)'
     VERACODE_DISPATCH_PATTERN: verademo.war
     VERACODE_DEFAULT_BRANCH: 'refs/heads/main'
