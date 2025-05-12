@@ -1,4 +1,4 @@
-scsdcsdsc# Security Policy
+sc# Security Policy
 
 ## Supported Versions
 
