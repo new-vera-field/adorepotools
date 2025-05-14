@@ -1,4 +1,4 @@
-sfvdsvfssfvvskhnkdsfvdvdvdvskgyfjvghdfvddfddvdfgfdgbykigyudfvfdn,nbbjVeraDemo - Blab-a-Gagnkj
+dvdfgfdgbykigyudfvfdn,nbbjVeraDemo - Blab-a-Gagnkj
 fgfgbgfxfvdvfdvdfs
  Notice
 
